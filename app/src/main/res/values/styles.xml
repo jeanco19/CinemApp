@@ -1,0 +1,35 @@
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_variant</item>
+        <item name="colorAccent">@color/color_secondary</item>
+    </style>
+
+    <style name="CustomTopCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/CustomShapeTopAppearanceCardView</item>
+    </style>
+
+    <style name="CustomShapeTopAppearanceCardView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/dimen_40dp</item>
+        <item name="cornerSizeTopRight">@dimen/dimen_40dp</item>
+        <item name="cornerSizeBottomLeft">@dimen/dimen_0dp</item>
+        <item name="cornerSizeBottomRight">@dimen/dimen_0dp</item>
+    </style>
+
+    <style name="CustomBottomCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/CustomShapeBottomAppearanceCardView</item>
+    </style>
+
+    <style name="CustomShapeBottomAppearanceCardView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/dimen_0dp</item>
+        <item name="cornerSizeTopRight">@dimen/dimen_0dp</item>
+        <item name="cornerSizeBottomLeft">@dimen/dimen_20dp</item>
+        <item name="cornerSizeBottomRight">@dimen/dimen_20dp</item>
+    </style>
+    
+    <style name="CustomDialogTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+</resources>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_primary">
+
+    <TextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:layout_marginStart="@dimen/dimen_16dp"
+        android:text="@string/title_welcome"
+        android:textColor="@color/color_on_primary"
+        android:textSize="@dimen/dimen_28sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_0dp"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        app:cardCornerRadius="@dimen/dimen_20dp"
+        android:background="@color/color_background"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimen_16dp"
+                android:paddingStart="@dimen/dimen_16dp"
+                android:paddingEnd="@dimen/dimen_0dp"
+                android:paddingBottom="@dimen/dimen_56dp">
+
+                <TextView
+                    android:id="@+id/text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:text="@string/recommended"
+                    android:textColor="@color/color_on_surface"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_recommended_elements"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/text_view"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_recommended"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <ProgressBar
+                        android:id="@+id/pb_recommended"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/tv_error_recommended"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/color_on_surface"
+                        android:textSize="@dimen/dimen_16sp"
+                        android:visibility="gone"
+                        tools:text="@string/error_empty_movies_list"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/text_view_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:text="@string/in_cinema"
+                    android:textColor="@color/color_on_surface"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    app:layout_constraintTop_toBottomOf="@+id/rl_recommended_elements"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_in_cinema_elements"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/text_view_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_in_cinema"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <ProgressBar
+                        android:id="@+id/pb_in_cinema"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/tv_error_in_cinema"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/color_on_surface"
+                        android:textSize="@dimen/dimen_16sp"
+                        android:visibility="gone"
+                        tools:text="@string/error_empty_movies_list"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/text_view_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:text="@string/next_releases"
+                    android:textColor="@color/color_on_surface"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    app:layout_constraintTop_toBottomOf="@+id/rl_in_cinema_elements"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_next_releases_elements"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginBottom="@dimen/dimen_10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/text_view_3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_next_releases"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                    <ProgressBar
+                        android:id="@+id/pb_next_releases"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/tv_error_next_releases"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/color_on_surface"
+                        android:textSize="@dimen/dimen_16sp"
+                        android:visibility="gone"
+                        tools:text="@string/error_empty_movies_list"/>
+
+                </RelativeLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

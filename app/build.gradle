@@ -1,0 +1,112 @@
+import dependencies.Versions
+import dependencies.Application
+import dependencies.AndroidTestDependencies
+import dependencies.Java
+import dependencies.Dependencies
+import dependencies.AnnotationProcessing
+
+plugins  {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+    id 'androidx.navigation.safeargs'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdkVersion Versions.compile_sdk
+    buildToolsVersion Versions.build_tools_version
+
+    defaultConfig {
+        applicationId Application.id
+        minSdkVersion Versions.min_sdk
+        targetSdkVersion Versions.target_sdk
+        versionCode Application.version_code
+        versionName Application.version_name
+
+        testInstrumentationRunner AndroidTestDependencies.instrumentation_runner
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = Java.java_version
+        targetCompatibility = Java.java_version
+    }
+
+    kotlinOptions {
+        jvmTarget = Java.java_version
+    }
+
+    android {
+        viewBinding.enabled = true
+    }
+
+    kapt {
+        correctErrorTypes = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Dependencies.kotlin_standard_library
+    implementation Dependencies.appcompat
+    implementation Dependencies.ktx
+    implementation Dependencies.legacy_support
+    implementation Dependencies.material_design
+    implementation Dependencies.constraintlayout
+    implementation Dependencies.lifecycle_extensions
+    implementation Dependencies.lifecycle_viewmodel
+    implementation Dependencies.lifecycle_livedata
+    implementation Dependencies.fragment
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    testImplementation AndroidTestDependencies.junit
+    androidTestImplementation AndroidTestDependencies.androidx_test_ext
+    androidTestImplementation AndroidTestDependencies.espresso_core
+
+    // Navigation
+    implementation Dependencies.navigation_component_fragment
+    implementation Dependencies.navigation_component_ui
+
+    // Retrofit
+    implementation Dependencies.retrofit
+    implementation Dependencies.retrofit_gson
+    implementation Dependencies.okhttp
+    implementation Dependencies.okhttp_interceptor
+
+    // Coroutine
+    implementation Dependencies.coroutine_kotlin_android
+    implementation Dependencies.coroutine_play_services
+
+    // Room
+    implementation Dependencies.room_runtime
+    implementation Dependencies.room_ktx
+    kapt AnnotationProcessing.room_compiler
+
+    // Coil
+    implementation(Dependencies.coil)
+
+    // Dagger Hilt
+    implementation Dependencies.hilt_android
+    implementation Dependencies.hilt_viewmodel
+    kapt AnnotationProcessing.hilt_android_compiler
+    kapt AnnotationProcessing.hilt_compiler
+
+    // Firebase
+    implementation platform(Dependencies.firebaseBom)
+    implementation Dependencies.firebaseAnalytics
+    implementation Dependencies.firebaseAuth
+
+    // Preferences
+    implementation Dependencies.preferences
+}

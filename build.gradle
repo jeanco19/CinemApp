@@ -1,0 +1,32 @@
+import dependencies.Versions
+import dependencies.Build
+
+buildscript {
+    ext.kotlin_version = Versions.kotlin
+    ext.navigation_version = Versions.navigation_component
+
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath Build.build_tools
+        classpath Build.kotlin_gradle_plugin
+        classpath Build.navigation_component_gradle_plugin
+        classpath Build.hilt_gradle_plugin
+        classpath Build.google_services
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

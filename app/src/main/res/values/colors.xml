@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_primary">#fe5642</color>
+    <color name="color_primary_variant">#c41a18</color>
+    <color name="color_secondary">#fe5642</color>
+    <color name="color_secondary_variant">#ff8a6e</color>
+
+    <color name="color_background">@android:color/white</color>
+    <color name="color_surface">@android:color/white</color>
+    <color name="color_error">#d50000</color>
+
+    <color name="color_on_primary">@android:color/white</color>
+    <color name="color_on_secondary">@android:color/white</color>
+    <color name="color_on_background">@android:color/black</color>
+    <color name="color_on_surface">@android:color/black</color>
+    <color name="color_on_error">@android:color/white</color>
+
+    <color name="color_transparent_black">#74000000</color>
+    <color name="color_dialog_background">#60000000</color>
+    <color name="color_card_dialog_background">#00000000</color>
+    <color name="color_light_gray">#F9F9F9</color>
+    <color name="color_medium_gray">#80D1D1D1</color>
+    <color name="color_dark_gray">#74232121</color>
+</resources>

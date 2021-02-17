@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1006848188628",
+    "firebase_url": "https://cinemapp-884f0.firebaseio.com",
+    "project_id": "cinemapp-884f0",
+    "storage_bucket": "cinemapp-884f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1006848188628:android:c3c29d336242072c1d1b41",
+        "android_client_info": {
+          "package_name": "com.jean.cinemapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1006848188628-cb380e3jciu9vauaq4vckdnmrginokki.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jean.cinemapp",
+            "certificate_hash": "a7a66e698eaea621d40df76ba4109b5f6243b1d4"
+          }
+        },
+        {
+          "client_id": "1006848188628-18tt1d5tuklabfs0i9cm8la3fvgb7rh2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB03Gfvdr1Sz2hSL3lwopIvwVEsEACcwN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1006848188628-18tt1d5tuklabfs0i9cm8la3fvgb7rh2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

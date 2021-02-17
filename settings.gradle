@@ -1,0 +1,2 @@
+rootProject.name='Cinemapp'
+include ':app'

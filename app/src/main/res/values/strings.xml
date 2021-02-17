@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">CinemApp</string>
+    <string name="dialog_close_app_title">Cerrar Aplicación</string>
+    <string name="dialog_close_app_message">¿Estás seguro que quieres salir de la aplicación?</string>
+    <string name="dialog_delete_button">Eliminar</string>
+    <string name="dialog_close_button">Cerrar</string>
+    <string name="dialog_cancel_button">Cancelar</string>
+    <string name="error_in_network">Ha ocurrido un error en la conexión, inténtelo de nuevo</string>
+    <string name="error_internet_connection">No tienes conexión a Internet. Asegurate que tu conexión esté activa</string>
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    <string name="title_activity_main">MainActivity</string>
+    <string name="nav_title_home">Home</string>
+    <string name="nav_title_search">Búsqueda</string>
+    <string name="nav_title_profile">Perfil</string>
+    <string name="nav_title_favorite">Favoritas</string>
+
+    <!-- FRONT UI -->
+    <string name="welcome_app_message">Bienvenido a CinemApp</string>
+    <string name="description_front_message">Descubre una mezcla de películas en constante expansión</string>
+    <string name="sign_in">Inicia Sesión</string>
+    <string name="sign_up">Registrate</string>
+
+    <!-- SIGN UP UI -->
+    <string name="hint_name">Nombre</string>
+    <string name="hint_last_name">Apellido</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="create_account">Crear cuenta</string>
+    <string name="recover_password">Recuperar contraseña</string>
+    <string name="dialog_sign_up_message">Registrando usuario...</string>
+    <string name="successfully_sign_up">Se ha registrado con éxito</string>
+    <string name="error_must_complete_this_field">Debe completar este campo para continuar</string>
+    <string name="error_email_in_use">El correo electrónico ya se encuentra registrado, por favor ingresa otro</string>
+    <string name="error_weak_password">La contraseña es débil. Debe contener al menos 8 caracteres</string>
+    <string name="error_invalid_email">El correo electrónico no es válido. Verifique su estructura</string>
+    <string name="error_sign_up">Ha ocurrido un error al crear la cuenta, inténtelo de nuevo</string>
+
+    <!-- SIGN IN UI -->
+    <string name="forgot_your_password">¿Olvidaste tu contraseña?</string>
+    <string name="enter">Ingresar</string>
+    <string name="dialog_sign_in_message">Iniciando sesión...</string>
+    <string name="error_user_not_found">Usuario no encontrado, inténtelo de nuevo.</string>
+    <string name="error_wrong_password">La contraseña es incorrecta, inténtelo de nuevo</string>
+    <string name="error_user_disable">El usuario de este correo electrónico ha sido deshabilitado</string>
+    <string name="error_sign_in">Ha ocurrido un error al iniciar sesión, inténtelo de nuevo</string>
+
+    <!-- RECOVER PASSWORD UI -->
+    <string name="send">Enviar</string>
+    <string name="recover_password_message">Ingresa el email con el que se registró y le  enviaremos las instrucciones para poder recuperar la contraseña:</string>
+    <string name="dialog_sending_email_message">Enviando correo electrónico...</string>
+    <string name="recover_password_email_send">Correo electrónico de restablecimiento enviado</string>
+    <string name="error_send_recover_password_email">Ha ocurrido un error al enviar el correo electronico de restablecimiento, inténtalo de nuevo</string>
+
+    <!-- HOME UI -->
+    <string name="title_welcome">Bienvenido</string>
+    <string name="title_hello_user">Hola, \n%s</string>
+    <string name="recommended">Recomendadas</string>
+    <string name="in_cinema">En cines</string>
+    <string name="next_releases">Próximos estrenos</string>
+    <string name="error_getting_movies_list">Ha ocurrido un error al obtener las películas</string>
+    <string name="error_empty_movies_list">No se encontraron películas disponibles</string>
+
+    <!-- MOVIE DETAIL UI -->
+    <string name="release">Estreno</string>
+    <string name="popularity">Popularidad</string>
+    <string name="cast">Casting:</string>
+    <string name="error_getting_cast_list">Ha ocurrido un error al obtener el casting</string>
+    <string name="error_empty_cast_list">No se encontraron datos del casting</string>
+
+    <!-- FAVORITE UI -->
+    <string name="dialog_delete_favorite_title">Eliminar favorito</string>
+    <string name="dialog_delete_favorite_message">¿Estás seguro que quieres eliminar esta película de tus favoritas?</string>
+    <string name="dialog_delete_all_favorites_title">Eliminar favoritos</string>
+    <string name="dialog_delete_all_favorites_message">¿Estás seguro que quieres eliminar todas tus películas favoritas?</string>
+    <string name="favorite_movie_added">Se agregó esta película a sus favoritas</string>
+    <string name="favorite_movie_deleted">Se retiró esta película de sus favoritas</string>
+    <string name="favorites_movies_deleted">Se eliminaron tus películas favoritas</string>
+    <string name="error_empty_favorites_list">No tienes películas favoritas</string>
+
+    <!-- SEARCH UI -->
+    <string name="title_search">Buscar</string>
+    <string name="error_empty_search_list">Escribe el nombre de la película que deseas buscar</string>
+    <string name="error_getting_search_movies_list">Ha ocurrido un error al realizar la búsqueda. Inténtalo de nuevo</string>
+    <string name="error_must_write_the_word_to_search">Debes escribir la palabra a buscar</string>
+
+    <!-- PROFILE UI -->
+    <string name="title_general">General</string>
+    <string name="option_edit_profile">Editar perfil</string>
+    <string name="option_change_password">Cambiar contraseña</string>
+    <string name="option_change_language">Cambiar idioma</string>
+    <string name="title_theme">Tema</string>
+    <string name="dark_mode">Modo Oscuro</string>
+    <string name="sign_out">Cerrar Sesión</string>
+    <string name="dialog_sign_out_message">Cerrando sesión...</string>
+    <string name="error_sign_out">Ha ocurrido un error al cerrar sesión, inténtelo de nuevo</string>
+    <string name="delete_all">Eliminar todo</string>
+</resources>

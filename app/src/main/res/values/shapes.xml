@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ShapeAppearance.MyTheme.LargeComponents" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+
+        <item name="cornerSize">@dimen/dimen_16dp</item>
+    </style>
+
+    <style name="ShapeAppearance.MyTheme.MediumComponents" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+
+        <item name="cornerSize">@dimen/dimen_16dp</item>
+    </style>
+</resources>
