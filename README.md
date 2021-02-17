@@ -2,6 +2,8 @@
 
 CinemApp es una aplicación Android nativa desarrollada en Kotlin donde podrás encontrar listados de películas populares, recientes, recomendadas, etc. Además, podrás ver el detalle de dichas películas, realizar búsquedas de tus favoritas y almacenarlas en un listado personalizado.
 
+![CinemApp README md image](https://user-images.githubusercontent.com/54419109/108267759-fe686700-7141-11eb-992b-d0cdc13fde4d.png)
+
 
 #### **Instalación**
 
