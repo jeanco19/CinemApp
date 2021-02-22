@@ -1,5 +1,6 @@
 package com.jean.cinemapp.di
 
+import com.jean.cinemapp.domain.usecase.auth.ChangePassword
 import com.jean.cinemapp.domain.usecase.auth.GetUserData
 import com.jean.cinemapp.domain.usecase.auth.SignOut
 import com.jean.cinemapp.domain.usecase.auth.SignUp
@@ -13,6 +14,7 @@ import com.jean.cinemapp.presentation.auth.viewmodel.SignUpViewModel
 import com.jean.cinemapp.presentation.favorite.viewmodel.FavoriteViewModel
 import com.jean.cinemapp.presentation.movie.viewmodel.MovieDetailViewModel
 import com.jean.cinemapp.presentation.movie.viewmodel.MovieViewModel
+import com.jean.cinemapp.presentation.profile.viewmodel.ChangePasswordViewModel
 import com.jean.cinemapp.presentation.profile.viewmodel.ProfileViewModel
 import com.jean.cinemapp.presentation.search.viewmodel.SearchViewModel
 import dagger.Module
@@ -51,6 +53,10 @@ object ViewModelModule {
     @Provides
     fun provideProfileViewModel(signOut: SignOut, getUserData: GetUserData): ProfileViewModel =
         ProfileViewModel(signOut, getUserData)
+
+    @Provides
+    fun provideChangePasswordViewModel(changePassword: ChangePassword): ChangePasswordViewModel =
+        ChangePasswordViewModel(changePassword)
 
     // SEARCH MODULE
 

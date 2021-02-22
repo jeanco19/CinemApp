@@ -46,7 +46,7 @@
     <string name="error_sign_in">Ha ocurrido un error al iniciar sesión, inténtelo de nuevo</string>
 
     <!-- RECOVER PASSWORD UI -->
-    <string name="send">Enviar</string>
+    <string name="send_title">Enviar</string>
     <string name="recover_password_message">Ingresa el email con el que se registró y le  enviaremos las instrucciones para poder recuperar la contraseña:</string>
     <string name="dialog_sending_email_message">Enviando correo electrónico...</string>
     <string name="recover_password_email_send">Correo electrónico de restablecimiento enviado</string>
@@ -92,7 +92,16 @@
     <string name="title_theme">Tema</string>
     <string name="dark_mode">Modo Oscuro</string>
     <string name="sign_out">Cerrar Sesión</string>
+    <string name="delete_all">Eliminar todo</string>
     <string name="dialog_sign_out_message">Cerrando sesión...</string>
     <string name="error_sign_out">Ha ocurrido un error al cerrar sesión, inténtelo de nuevo</string>
-    <string name="delete_all">Eliminar todo</string>
+
+    <!-- CHANGE PASSWORD UI -->
+    <string name="change_title">Cambiar</string>
+    <string name="hint_confirm_password">Confirmar contraseña</string>
+    <string name="hint_new_password">Nueva contraseña</string>
+    <string name="change_password_successfully">Se ha realizado el cambio de contraseña</string>
+    <string name="dialog_changing_password">Cambiando contraseña...</string>
+    <string name="error_passwords_not_match">Las contraseñas no coinciden</string>
+    <string name="error_changing_password">Ha ocurrido un error al cambiar la contraseña, inténtelo de nuevo</string>
 </resources>

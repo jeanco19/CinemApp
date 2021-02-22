@@ -45,7 +45,7 @@ class MainActivity: AppCompatActivity() {
                     mIsCloseAppDialogEnable = true
                     hideBottomNavigation()
                 }
-                R.id.sign_in_fragment, R.id.sign_up_fragment, R.id.recover_password_fragment, R.id.movie_detail -> {
+                R.id.sign_in_fragment, R.id.sign_up_fragment, R.id.recover_password_fragment, R.id.movie_detail, R.id.change_password -> {
                     mIsCloseAppDialogEnable = false
                     hideBottomNavigation()
                 }

@@ -56,6 +56,17 @@ class Helper {
             }
         }
 
+        fun manageFirebaseUpdatePasswordErrors(context: Context, errorMessage: String): String {
+            return when (errorMessage) {
+                FIREBASE_ERROR_WEAK_PASSWORD -> {
+                    context.getString(R.string.error_weak_password)
+                }
+                else -> {
+                    context.getString(R.string.error_changing_password)
+                }
+            }
+        }
+
         // PROFILE MODULE
 
         fun getGeneralSettingOptions(context: Context): List<Option> {

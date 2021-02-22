@@ -55,6 +55,15 @@ class AuthenticationDataSourceImpl @Inject constructor(@ApplicationContext priva
         }
     }
 
+    override suspend fun changePassword(newPassword: String): Resource<Boolean> {
+        return try {
+            firebaseAuth.currentUser?.updatePassword(newPassword)?.await()
+            Resource.Success(true, context.getString(R.string.change_password_successfully))
+        } catch (exception: FirebaseAuthException) {
+            Resource.Error(ErrorTypes.FAILED_RESPONSE, message = Helper.manageFirebaseUpdatePasswordErrors(context, exception.errorCode))
+        }
+    }
+
     override fun getUserData(): User? {
         var user: User? = null
         firebaseAuth.currentUser?.let { firebaseUser ->

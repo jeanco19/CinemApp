@@ -83,7 +83,7 @@ class ProfileFragment: Fragment(), OptionAdapter.Interaction {
                 // TODO implementar navegación a Fragment de editar perfil
             }
             OPTION_CHANGE_PASSWORD -> {
-                // TODO implementar navegación a Fragment de cambiar contraseña
+                findNavController().navigate(ProfileFragmentDirections.actionNavigationProfileToChangePassword())
             }
             OPTION_CHANGE_LANGUAGE -> {
                 // TODO implementar navegación a Fragment de cambiar idioma

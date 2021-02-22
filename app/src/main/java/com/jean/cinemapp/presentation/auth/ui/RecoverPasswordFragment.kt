@@ -9,14 +9,12 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.jean.cinemapp.R
 
 import com.jean.cinemapp.databinding.FragmentRecoverPasswordBinding
 import com.jean.cinemapp.presentation.auth.viewmodel.RecoverPasswordViewModel
-import com.jean.cinemapp.utils.BaseProgressDialog
-import com.jean.cinemapp.utils.Resource
-import com.jean.cinemapp.utils.validateEmailInput
-import com.jean.cinemapp.utils.validateInput
+import com.jean.cinemapp.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -47,34 +45,49 @@ class RecoverPasswordFragment: Fragment() {
     }
 
     private fun validateRecoverInput() {
-        if (isFormComplete()) {
+        if (isInputComplete()) {
             val email = mBinding.tietEmail.text.toString().trim()
-            mRecoverPasswordViewModel.doRecoverPassword(email).observe(viewLifecycleOwner, object: Observer<Resource<Boolean>> {
-                override fun onChanged(result: Resource<Boolean>) {
-                    when (result) {
-                        is Resource.Loading -> {
-                            mProgressDialog.show(requireContext(), getString(R.string.dialog_sending_email_message))
-                        }
-                        is Resource.Success -> {
-                            mProgressDialog.mDialog.dismiss()
-                            mRecoverPasswordViewModel.mRecoverPassword.removeObserver(this)
-                            Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
-                            findNavController().navigate(RecoverPasswordFragmentDirections.actionRecoverPasswordFragmentToSignInFragment())
-                        }
-                        is Resource.Error -> {
-                            mProgressDialog.mDialog.dismiss()
-                            mRecoverPasswordViewModel.mRecoverPassword.removeObserver(this)
-                            Toast.makeText(requireContext(), result.message, Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }
-            })
+            doRecoverPassword(email)
         }
     }
 
-    private fun isFormComplete(): Boolean {
-        return mBinding.tietEmail.validateInput(requireContext(), mBinding.tilEmail) &&
-               mBinding.tietEmail.validateEmailInput(requireContext(), mBinding.tilEmail)
+    private fun isInputComplete(): Boolean {
+        return mBinding.tietEmail.validateEmptyInput(requireContext(), mBinding.tilEmail) &&
+                mBinding.tietEmail.validateEmailInput(requireContext(), mBinding.tilEmail)
+    }
+
+    private fun doRecoverPassword(email: String) {
+        mRecoverPasswordViewModel.doRecoverPassword(email).observe(viewLifecycleOwner, object: Observer<Resource<Boolean>> {
+            override fun onChanged(result: Resource<Boolean>) {
+                when (result) {
+                    is Resource.Loading -> {
+                        mProgressDialog.show(requireContext(), getString(R.string.dialog_sending_email_message))
+                    }
+                    is Resource.Success -> {
+                        mProgressDialog.mDialog.dismiss()
+                        mRecoverPasswordViewModel.mRecoverPassword.removeObserver(this)
+                        Snackbar.make(mBinding.root, result.message!!, Snackbar.LENGTH_SHORT).show()
+                        findNavController().navigate(RecoverPasswordFragmentDirections.actionRecoverPasswordFragmentToSignInFragment())
+                    }
+                    is Resource.Error -> {
+                        mProgressDialog.mDialog.dismiss()
+                        mRecoverPasswordViewModel.mRecoverPassword.removeObserver(this)
+                        manageErrors(result)
+                    }
+                }
+            }
+        })
+    }
+
+    private fun manageErrors(result: Resource.Error<Boolean>) {
+        when (result.errorType) {
+            ErrorTypes.FAILED_RESPONSE -> {
+                Toast.makeText(requireContext(), result.message, Toast.LENGTH_LONG).show()
+            }
+            ErrorTypes.WITHOUT_CONNECTION -> {
+                Snackbar.make(mBinding.root, getString(R.string.error_internet_connection), Snackbar.LENGTH_LONG).show()
+            }
+        }
     }
 
     override fun onDestroyView() {

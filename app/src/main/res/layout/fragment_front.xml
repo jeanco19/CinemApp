@@ -6,11 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/dimen_16dp"
-    android:background="@color/color_surface"
+    android:background="@color/color_background"
     tools:context=".presentation.auth.ui.FrontFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_app_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_50dp"
@@ -23,7 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/tv_welcome_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_30dp"
@@ -31,12 +31,12 @@
         android:fontFamily="@font/baloo_thambi2_regular"
         android:textColor="@color/color_on_surface"
         android:textSize="@dimen/dimen_24sp"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/tv_app_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_welcome_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_30dp"
@@ -44,10 +44,10 @@
         android:textColor="@color/color_on_surface"
         android:textSize="@dimen/dimen_20sp"
         android:fontFamily="@font/baloo_thambi2_regular"
-        app:layout_constraintTop_toBottomOf="@+id/textView1"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome_title"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSignIn"
+        android:id="@+id/btn_sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/dimen_15dp"
@@ -55,10 +55,10 @@
         android:text="@string/sign_in"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/btnSignUp"/>
+        app:layout_constraintBottom_toTopOf="@+id/btn_sign_up"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSignUp"
+        android:id="@+id/btn_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/dimen_15dp"

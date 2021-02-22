@@ -5,13 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import com.jean.cinemapp.R
 import com.jean.cinemapp.databinding.ItemMovieBinding
 import com.jean.cinemapp.domain.model.movie.Movie
+import com.jean.cinemapp.utils.BaseViewHolder
 import com.jean.cinemapp.utils.loadMovieImage
 
-class MovieAdapter(private val interaction: Interaction? = null): ListAdapter<Movie, MovieAdapter.ViewHolder>(DiffCallback()) {
+class MovieAdapter(private val interaction: Interaction? = null): ListAdapter<Movie, BaseViewHolder<*>>(DiffCallback()) {
 
     private var mMovieList: List<Movie> = listOf()
 
@@ -20,25 +20,25 @@ class MovieAdapter(private val interaction: Interaction? = null): ListAdapter<Mo
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-        ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> =
+        MovieViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false))
 
     override fun getItemCount(): Int = mMovieList.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(mMovieList[position], interaction, position)
+    override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
+        (holder as MovieViewHolder).bind(mMovieList[position], position)
     }
 
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    inner class MovieViewHolder(itemView: View): BaseViewHolder<Movie>(itemView) {
 
-        private val mBinding = ItemMovieBinding.bind(view)
+        private val mBinding = ItemMovieBinding.bind(itemView)
 
-        fun bind(movie: Movie, interaction: Interaction?, position: Int) = with(mBinding) {
-            tvName.text = movie.title
-            tvRating.text = movie.voteAverage.toString()
-            if (!movie.posterPath.isNullOrEmpty()) ivPoster.loadMovieImage(movie.posterPath)
+        override fun bind(item: Movie, position: Int) = with(mBinding) {
+            tvName.text = item.title
+            tvRating.text = item.voteAverage.toString()
+            if (!item.posterPath.isNullOrEmpty()) ivPoster.loadMovieImage(item.posterPath)
             root.setOnClickListener {
-                interaction?.onItemSelected(position, movie)
+                interaction?.onItemSelected(position, item)
             }
         }
     }

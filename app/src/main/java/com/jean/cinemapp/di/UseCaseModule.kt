@@ -38,6 +38,10 @@ object UseCaseModule {
         RecoverPasswordImpl(authenticationRepository)
 
     @Provides
+    fun provideChangePassword(authenticationRepository: AuthenticationRepository): ChangePassword =
+        ChangePasswordImpl(authenticationRepository)
+
+    @Provides
     fun provideGetUserData(authenticationRepository: AuthenticationRepository): GetUserData =
         GetUserDataImpl(authenticationRepository)
 

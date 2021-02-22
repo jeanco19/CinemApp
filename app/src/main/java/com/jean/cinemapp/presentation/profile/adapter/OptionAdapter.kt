@@ -7,28 +7,29 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jean.cinemapp.R
 import com.jean.cinemapp.databinding.ItemOptionBinding
 import com.jean.cinemapp.domain.model.profile.Option
+import com.jean.cinemapp.utils.BaseViewHolder
 
 class OptionAdapter(private val optionList: List<Option>,
-                    private val interaction: Interaction? = null): RecyclerView.Adapter<OptionAdapter.ViewHolder>() {
+                    private val interaction: Interaction? = null): RecyclerView.Adapter<BaseViewHolder<*>>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-        ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_option, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> =
+        OptionViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_option, parent, false))
 
     override fun getItemCount(): Int = optionList.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(optionList[position], interaction)
+    override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
+        (holder as OptionViewHolder).bind(optionList[position], position)
     }
 
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class OptionViewHolder(itemView: View): BaseViewHolder<Option>(itemView) {
 
         private val mBinding = ItemOptionBinding.bind(itemView)
 
-        fun bind(option: Option, interaction: Interaction?) = with(mBinding) {
-            ivIcon.setImageResource(option.icon)
-            tvTitle.text = option.title
+        override fun bind(item: Option, position: Int) = with(mBinding) {
+            ivIcon.setImageResource(item.icon)
+            tvTitle.text = item.title
             root.setOnClickListener {
-                interaction?.onItemSelected(option.flag)
+                interaction?.onItemSelected(item.flag)
             }
         }
     }

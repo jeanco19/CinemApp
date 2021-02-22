@@ -5,14 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import com.jean.cinemapp.R
 import com.jean.cinemapp.databinding.ItemCastBinding
 import com.jean.cinemapp.domain.model.movie.Cast
+import com.jean.cinemapp.utils.BaseViewHolder
 import com.jean.cinemapp.utils.loadCastImage
-import com.jean.cinemapp.utils.loadMovieImage
 
-class CastAdapter: ListAdapter<Cast, CastAdapter.ViewHolder>(DiffCallback()) {
+class CastAdapter: ListAdapter<Cast, BaseViewHolder<*>>(DiffCallback()) {
 
     private var mCastList: List<Cast> = listOf()
 
@@ -21,20 +20,22 @@ class CastAdapter: ListAdapter<Cast, CastAdapter.ViewHolder>(DiffCallback()) {
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-        ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_cast, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> =
+        CastViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_cast, parent, false))
 
     override fun getItemCount(): Int = mCastList.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(mCastList[position])
+    override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
+        (holder as CastViewHolder).bind(mCastList[position], position)
+    }
 
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    inner class CastViewHolder(itemView: View): BaseViewHolder<Cast>(itemView) {
 
-        private val mBinding = ItemCastBinding.bind(view)
+        private val mBinding = ItemCastBinding.bind(itemView)
 
-        fun bind(cast: Cast) = with(mBinding) {
-            if (!cast.profilePath.isNullOrEmpty()) ivPoster.loadCastImage(cast.profilePath)
-            tvName.text = cast.name
+        override fun bind(item: Cast, position: Int) = with(mBinding) {
+            if (!item.profilePath.isNullOrEmpty()) ivPoster.loadCastImage(item.profilePath)
+            tvName.text = item.name
         }
     }
 

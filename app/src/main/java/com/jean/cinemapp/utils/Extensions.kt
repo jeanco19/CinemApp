@@ -57,7 +57,7 @@ fun ImageView.loadFirebaseImage(image: Uri?) {
     }
 }
 
-fun TextInputEditText.validateInput(context: Context, textInputLayout: TextInputLayout): Boolean {
+fun TextInputEditText.validateEmptyInput(context: Context, textInputLayout: TextInputLayout): Boolean {
     if (this.text.toString().isEmpty()) {
         textInputLayout.error = context.getString(R.string.error_must_complete_this_field)
         textInputLayout.isFocusable = true
@@ -84,6 +84,16 @@ fun TextInputEditText.validatePasswordLengthInput(context: Context, textInputLay
         textInputLayout.error = context.getString(R.string.error_weak_password)
         textInputLayout.isFocusable = true
         return false
+    } else {
+        textInputLayout.error = null
+    }
+    return true
+}
+
+fun TextInputEditText.validateMatchPasswordInputs(context: Context, textInputLayout: TextInputLayout, otherPassword: String): Boolean {
+    if (this.text.toString().trim() != otherPassword.trim()) {
+        textInputLayout.error = context.getString(R.string.error_passwords_not_match)
+        textInputLayout.isFocusable = true
     } else {
         textInputLayout.error = null
     }

@@ -52,7 +52,15 @@
         android:id="@+id/navigation_profile"
         android:name="com.jean.cinemapp.presentation.profile.ui.ProfileFragment"
         android:label="@string/nav_title_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_change_password"
+            app:destination="@id/change_password"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
 
     <fragment
         android:id="@+id/movie_detail"
@@ -88,6 +96,20 @@
             android:name="navigation_from"
             app:argType="string"
             app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/change_password"
+        android:name="com.jean.cinemapp.presentation.profile.ui.ChangePasswordFragment"
+        android:label="fragment_password"
+        tools:layout="@layout/fragment_change_password" >
+        <action
+            android:id="@+id/action_change_password_to_navigation_profile"
+            app:destination="@id/navigation_profile"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
     </fragment>
 
 </navigation>

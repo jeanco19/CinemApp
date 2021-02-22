@@ -13,5 +13,7 @@ interface AuthenticationDataSource {
 
     suspend fun recoverPassword(email: String): Resource<Boolean>
 
+    suspend fun changePassword(newPassword: String): Resource<Boolean>
+
     fun getUserData(): User?
 }
