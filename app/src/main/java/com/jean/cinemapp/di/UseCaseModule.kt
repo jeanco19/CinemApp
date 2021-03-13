@@ -45,6 +45,10 @@ object UseCaseModule {
     fun provideGetUserData(authenticationRepository: AuthenticationRepository): GetUserData =
         GetUserDataImpl(authenticationRepository)
 
+    @Provides
+    fun provideReAuthentication(authenticationRepository: AuthenticationRepository): ReAuthenticate =
+        ReAuthenticateImpl(authenticationRepository)
+
     // MOVIE MODULE
 
     @Provides

@@ -14,6 +14,7 @@ import com.jean.cinemapp.R
 import com.jean.cinemapp.databinding.FragmentChangePasswordBinding
 import com.jean.cinemapp.presentation.profile.viewmodel.ChangePasswordViewModel
 import com.jean.cinemapp.utils.*
+import com.jean.cinemapp.utils.Constants.FIREBASE_ERROR_REQUIRE_RECENT_LOGIN
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -62,7 +63,7 @@ class ChangePasswordFragment: Fragment() {
             override fun onChanged(result: Resource<Boolean>?) {
                 when (result) {
                     is Resource.Loading -> {
-                        mProgressDialog.show(requireContext(), getString(R.string.dialog_changing_password))
+                        mProgressDialog.show(requireContext(), getString(R.string.progress_dialog_changing_password_message))
                     }
                     is Resource.Success -> {
                         mProgressDialog.mDialog.dismiss()
@@ -71,7 +72,6 @@ class ChangePasswordFragment: Fragment() {
                         Snackbar.make(mBinding.root, result.message!!, Snackbar.LENGTH_SHORT).show()
                     }
                     is Resource.Error -> {
-                        // TODO implementar dialogo para re-autenticacion cuando el usuario realiza esta operacion tiempo despues de hacer un login
                         mProgressDialog.mDialog.dismiss()
                         mChangePasswordViewModel.mChangePassword.removeObserver(this)
                         manageErrors(result)
@@ -89,12 +89,21 @@ class ChangePasswordFragment: Fragment() {
     private fun manageErrors(result: Resource.Error<Boolean>) {
         when (result.errorType) {
             ErrorTypes.FAILED_RESPONSE -> {
-                Toast.makeText(requireContext(), result.message, Toast.LENGTH_LONG).show()
+                if (result.message == FIREBASE_ERROR_REQUIRE_RECENT_LOGIN) {
+                    showReAuthenticateBottomSheet()
+                } else {
+                    Toast.makeText(requireContext(), result.message, Toast.LENGTH_LONG).show()
+                }
             }
             ErrorTypes.WITHOUT_CONNECTION -> {
                 Snackbar.make(mBinding.root, getString(R.string.error_internet_connection), Snackbar.LENGTH_LONG).show()
             }
         }
+    }
+
+    private fun showReAuthenticateBottomSheet() {
+        findNavController().navigate(ChangePasswordFragmentDirections
+            .actionChangePasswordToReAuthenticationBottomSheetFragment())
     }
 
     override fun onDestroyView() {

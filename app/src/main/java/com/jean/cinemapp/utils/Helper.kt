@@ -4,8 +4,11 @@ import android.content.Context
 import com.jean.cinemapp.R
 import com.jean.cinemapp.domain.model.profile.Option
 import com.jean.cinemapp.utils.Constants.FIREBASE_ERROR_EMAIL_IN_USE
+import com.jean.cinemapp.utils.Constants.FIREBASE_ERROR_INVALID_CREDENTIAL
 import com.jean.cinemapp.utils.Constants.FIREBASE_ERROR_INVALID_EMAIL
+import com.jean.cinemapp.utils.Constants.FIREBASE_ERROR_REQUIRE_RECENT_LOGIN
 import com.jean.cinemapp.utils.Constants.FIREBASE_ERROR_USER_DISABLE
+import com.jean.cinemapp.utils.Constants.FIREBASE_ERROR_USER_MISMATCH
 import com.jean.cinemapp.utils.Constants.FIREBASE_ERROR_USER_NOT_FOUND
 import com.jean.cinemapp.utils.Constants.FIREBASE_ERROR_WEAK_PASSWORD
 import com.jean.cinemapp.utils.Constants.FIREBASE_ERROR_WRONG_PASSWORD
@@ -60,6 +63,32 @@ class Helper {
             return when (errorMessage) {
                 FIREBASE_ERROR_WEAK_PASSWORD -> {
                     context.getString(R.string.error_weak_password)
+                }
+                FIREBASE_ERROR_REQUIRE_RECENT_LOGIN -> {
+                    FIREBASE_ERROR_REQUIRE_RECENT_LOGIN
+                }
+                else -> {
+                    context.getString(R.string.error_changing_password)
+                }
+            }
+        }
+
+        fun manageFirebaseReAuthenticateErrors(context: Context, errorMessage: String): String {
+            return when (errorMessage) {
+                FIREBASE_ERROR_USER_MISMATCH -> {
+                    context.getString(R.string.error_user_mismatch)
+                }
+                FIREBASE_ERROR_USER_NOT_FOUND -> {
+                    context.getString(R.string.error_user_not_found)
+                }
+                FIREBASE_ERROR_INVALID_CREDENTIAL -> {
+                    context.getString(R.string.error_invalid_credential)
+                }
+                FIREBASE_ERROR_INVALID_EMAIL -> {
+                    context.getString(R.string.error_invalid_email)
+                }
+                FIREBASE_ERROR_WRONG_PASSWORD -> {
+                    context.getString(R.string.error_wrong_password)
                 }
                 else -> {
                     context.getString(R.string.error_changing_password)

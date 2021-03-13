@@ -15,5 +15,7 @@ interface AuthenticationRepository {
 
     suspend fun changePassword(newPassword: String): Resource<Boolean>
 
+    suspend fun reAuthenticate(email: String, password: String): Resource<Boolean>
+
     fun getUserData(): User?
 }

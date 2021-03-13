@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.jean.cinemapp.R
 
 import com.jean.cinemapp.databinding.FragmentProfileBinding
@@ -43,11 +44,20 @@ class ProfileFragment: Fragment(), OptionAdapter.Interaction {
 
     private fun setupListeners() {
         mBinding.tvSignOut.setOnClickListener {
-            doSignOut()
+            showSignOutDialog()
         }
         mBinding.swDarkMode.setOnCheckedChangeListener { buttonView, isChecked ->
             // TODO activar o desactivar el modo oscuro según el estado del Switch
         }
+    }
+
+    private fun showSignOutDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(R.string.dialog_sign_out_title))
+            .setMessage(getString(R.string.dialog_sign_out_message))
+            .setPositiveButton(getString(R.string.dialog_close_button)) { dialog, which -> doSignOut() }
+            .setNegativeButton(getString(R.string.dialog_cancel_button), null)
+            .show()
     }
 
     private fun doSignOut() {
@@ -55,7 +65,7 @@ class ProfileFragment: Fragment(), OptionAdapter.Interaction {
             override fun onChanged(result: Resource<Boolean>?) {
                 when (result) {
                     is Resource.Loading -> {
-                        mProgressDialog.show(requireContext(), getString(R.string.dialog_sign_out_message))
+                        mProgressDialog.show(requireContext(), getString(R.string.progress_dialog_sign_out_message))
                     }
                     is Resource.Success -> {
                         mProgressDialog.mDialog.dismiss()

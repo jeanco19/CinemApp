@@ -67,7 +67,7 @@ class SignUpFragment: Fragment() {
             override fun onChanged(result: Resource<Boolean>) {
                 when (result) {
                     is Resource.Loading -> {
-                        mProgressDialog.show(requireContext(), getString(R.string.dialog_sign_up_message))
+                        mProgressDialog.show(requireContext(), getString(R.string.progress_dialog_sign_up_message))
                     }
                     is Resource.Success -> {
                         mProgressDialog.mDialog.dismiss()

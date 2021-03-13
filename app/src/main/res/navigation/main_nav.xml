@@ -110,6 +110,19 @@
             app:exitAnim="@anim/to_right"
             app:popEnterAnim="@anim/from_right"
             app:popExitAnim="@anim/to_left" />
+        <action
+            android:id="@+id/action_change_password_to_reAuthenticationBottomSheetFragment"
+            app:destination="@id/reAuthenticationBottomSheetFragment" />
     </fragment>
+
+    <dialog
+        android:id="@+id/reAuthenticationBottomSheetFragment"
+        android:name="com.jean.cinemapp.presentation.profile.ui.ReAuthenticationBottomSheetFragment"
+        android:label="ReAuthenticationBottomSheetFragment"
+        tools:layout="@layout/bottom_sheet_re_authentication">
+        <action
+            android:id="@+id/action_reAuthenticationBottomSheetFragment_to_change_password"
+            app:destination="@id/change_password" />
+    </dialog>
 
 </navigation>

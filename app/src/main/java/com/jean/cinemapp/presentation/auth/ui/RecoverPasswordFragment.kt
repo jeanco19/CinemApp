@@ -61,7 +61,7 @@ class RecoverPasswordFragment: Fragment() {
             override fun onChanged(result: Resource<Boolean>) {
                 when (result) {
                     is Resource.Loading -> {
-                        mProgressDialog.show(requireContext(), getString(R.string.dialog_sending_email_message))
+                        mProgressDialog.show(requireContext(), getString(R.string.progress_dialog_sending_email_message))
                     }
                     is Resource.Success -> {
                         mProgressDialog.mDialog.dismiss()

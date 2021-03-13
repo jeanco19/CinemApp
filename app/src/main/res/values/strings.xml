@@ -28,7 +28,7 @@
     <string name="hint_password">Contraseña</string>
     <string name="create_account">Crear cuenta</string>
     <string name="recover_password">Recuperar contraseña</string>
-    <string name="dialog_sign_up_message">Registrando usuario...</string>
+    <string name="progress_dialog_sign_up_message">Registrando usuario...</string>
     <string name="successfully_sign_up">Se ha registrado con éxito</string>
     <string name="error_must_complete_this_field">Debe completar este campo para continuar</string>
     <string name="error_email_in_use">El correo electrónico ya se encuentra registrado, por favor ingresa otro</string>
@@ -39,7 +39,7 @@
     <!-- SIGN IN UI -->
     <string name="forgot_your_password">¿Olvidaste tu contraseña?</string>
     <string name="enter">Ingresar</string>
-    <string name="dialog_sign_in_message">Iniciando sesión...</string>
+    <string name="progress_dialog_sign_in_message">Iniciando sesión...</string>
     <string name="error_user_not_found">Usuario no encontrado, inténtelo de nuevo.</string>
     <string name="error_wrong_password">La contraseña es incorrecta, inténtelo de nuevo</string>
     <string name="error_user_disable">El usuario de este correo electrónico ha sido deshabilitado</string>
@@ -48,7 +48,7 @@
     <!-- RECOVER PASSWORD UI -->
     <string name="send_title">Enviar</string>
     <string name="recover_password_message">Ingresa el email con el que se registró y le  enviaremos las instrucciones para poder recuperar la contraseña:</string>
-    <string name="dialog_sending_email_message">Enviando correo electrónico...</string>
+    <string name="progress_dialog_sending_email_message">Enviando correo electrónico...</string>
     <string name="recover_password_email_send">Correo electrónico de restablecimiento enviado</string>
     <string name="error_send_recover_password_email">Ha ocurrido un error al enviar el correo electronico de restablecimiento, inténtalo de nuevo</string>
 
@@ -93,15 +93,25 @@
     <string name="dark_mode">Modo Oscuro</string>
     <string name="sign_out">Cerrar Sesión</string>
     <string name="delete_all">Eliminar todo</string>
-    <string name="dialog_sign_out_message">Cerrando sesión...</string>
+    <string name="progress_dialog_sign_out_message">Cerrando sesión...</string>
+    <string name="dialog_sign_out_title">Cerrar sesión</string>
+    <string name="dialog_sign_out_message">¿Estás seguro que quieres cerrar sesión?</string>
     <string name="error_sign_out">Ha ocurrido un error al cerrar sesión, inténtelo de nuevo</string>
+    <string name="error_user_mismatch">Las credenciales proporcionadas no corresponden al usuario, inténtelo de nuevo</string>
+    <string name="error_invalid_credential">Las credenciales no son válidad</string>
 
     <!-- CHANGE PASSWORD UI -->
     <string name="change_title">Cambiar</string>
     <string name="hint_confirm_password">Confirmar contraseña</string>
     <string name="hint_new_password">Nueva contraseña</string>
     <string name="change_password_successfully">Se ha realizado el cambio de contraseña</string>
-    <string name="dialog_changing_password">Cambiando contraseña...</string>
+    <string name="progress_dialog_changing_password_message">Cambiando contraseña...</string>
     <string name="error_passwords_not_match">Las contraseñas no coinciden</string>
     <string name="error_changing_password">Ha ocurrido un error al cambiar la contraseña, inténtelo de nuevo</string>
+
+    <!-- RE AUTHENTICATION BOTTOM SHEET UI -->
+    <string name="re_authentication_message">Para realizar esta operación debe autenticarse. Por favor ingrese su contraseña actual</string>
+    <string name="title_re_authenticate">Autenticar</string>
+    <string name="progress_dialog_authenticating_message">Autenticando...</string>
+    <string name="re_authentication_successfully_message">Authenticado!. Puede continuar con la operación</string>
 </resources>

@@ -1,9 +1,7 @@
 package com.jean.cinemapp.data.datasource.remote.auth
 
 import android.content.Context
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthException
-import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.auth.*
 import com.jean.cinemapp.R
 import com.jean.cinemapp.domain.model.auth.User
 import com.jean.cinemapp.utils.ErrorTypes
@@ -61,6 +59,16 @@ class AuthenticationDataSourceImpl @Inject constructor(@ApplicationContext priva
             Resource.Success(true, context.getString(R.string.change_password_successfully))
         } catch (exception: FirebaseAuthException) {
             Resource.Error(ErrorTypes.FAILED_RESPONSE, message = Helper.manageFirebaseUpdatePasswordErrors(context, exception.errorCode))
+        }
+    }
+
+    override suspend fun reAuthenticate(email: String, password: String): Resource<Boolean> {
+        return try {
+            val credential = EmailAuthProvider.getCredential(email, password)
+            firebaseAuth.currentUser?.reauthenticate(credential)?.await()
+            Resource.Success(true)
+        } catch (exception: FirebaseAuthException) {
+            Resource.Error(ErrorTypes.FAILED_RESPONSE, message = Helper.manageFirebaseReAuthenticateErrors(context, exception.errorCode))
         }
     }
 

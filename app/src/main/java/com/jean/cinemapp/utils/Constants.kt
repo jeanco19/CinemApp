@@ -6,7 +6,7 @@ object Constants {
 
     const val BASE_URL = "https://api.themoviedb.org/3/"
     const val IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500/"
-    const val API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" // Colocar acá The MovieDB Key
+    const val API_KEY = "121237d7516cc37b2c6ea837480e8bcf"
 
     // ENDPOINTS
 
@@ -49,6 +49,9 @@ object Constants {
     const val FIREBASE_ERROR_INVALID_EMAIL = "ERROR_INVALID_EMAIL"
     const val FIREBASE_ERROR_USER_NOT_FOUND = "ERROR_USER_NOT_FOUND"
     const val FIREBASE_ERROR_USER_DISABLE = "ERROR_USER_DISABLED"
+    const val FIREBASE_ERROR_REQUIRE_RECENT_LOGIN = "ERROR_REQUIRES_RECENT_LOGIN"
+    const val FIREBASE_ERROR_USER_MISMATCH = "ERROR_USER_MISMATCH"
+    const val FIREBASE_ERROR_INVALID_CREDENTIAL = "ERROR_INVALID_CREDENTIAL"
 
     // SETTING OPTIONS
 

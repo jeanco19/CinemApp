@@ -50,6 +50,14 @@ class AuthenticationRepositoryImpl @Inject constructor(private val authenticatio
         }
     }
 
+    override suspend fun reAuthenticate(email: String, password: String): Resource<Boolean> {
+        return if (Connectivity.isNetworkAvailable()) {
+            authenticationDataSource.reAuthenticate(email, password)
+        } else {
+            Resource.Error(ErrorTypes.WITHOUT_CONNECTION)
+        }
+    }
+
     override fun getUserData(): User? =
         authenticationDataSource.getUserData()
 }

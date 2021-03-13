@@ -1,9 +1,6 @@
 package com.jean.cinemapp.di
 
-import com.jean.cinemapp.domain.usecase.auth.ChangePassword
-import com.jean.cinemapp.domain.usecase.auth.GetUserData
-import com.jean.cinemapp.domain.usecase.auth.SignOut
-import com.jean.cinemapp.domain.usecase.auth.SignUp
+import com.jean.cinemapp.domain.usecase.auth.*
 import com.jean.cinemapp.domain.usecase.favorite.DeleteAllFavorites
 import com.jean.cinemapp.domain.usecase.favorite.DeleteFavorite
 import com.jean.cinemapp.domain.usecase.favorite.GetFavoriteMovies
@@ -55,8 +52,8 @@ object ViewModelModule {
         ProfileViewModel(signOut, getUserData)
 
     @Provides
-    fun provideChangePasswordViewModel(changePassword: ChangePassword): ChangePasswordViewModel =
-        ChangePasswordViewModel(changePassword)
+    fun provideChangePasswordViewModel(changePassword: ChangePassword, reAuthenticate: ReAuthenticate, getUserData: GetUserData): ChangePasswordViewModel =
+        ChangePasswordViewModel(changePassword, reAuthenticate, getUserData)
 
     // SEARCH MODULE
 
