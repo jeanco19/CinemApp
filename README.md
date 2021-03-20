@@ -33,4 +33,3 @@ Este proyecto aún se encuentra en desarrollo. Los módulos y funcionalidades qu
 1. - Unit Testing
 1. - Cambiar idioma
 1. - Editar perfil
-1. - Cambiar contraseña
