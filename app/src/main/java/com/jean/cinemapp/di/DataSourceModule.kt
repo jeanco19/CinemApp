@@ -5,16 +5,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.jean.cinemapp.data.database.CinemaDao
 import com.jean.cinemapp.data.datasource.local.favorite.FavoriteLocalDataSource
 import com.jean.cinemapp.data.datasource.local.favorite.FavoriteLocalDataSourceImpl
-import com.jean.cinemapp.data.datasource.local.movie.MovieDetailLocalDataSource
-import com.jean.cinemapp.data.datasource.local.movie.MovieDetailLocalDataSourceImpl
 import com.jean.cinemapp.data.datasource.local.movie.MovieLocalDataSource
 import com.jean.cinemapp.data.datasource.local.movie.MovieLocalDataSourceImpl
 import com.jean.cinemapp.data.datasource.remote.auth.AuthenticationDataSource
 import com.jean.cinemapp.data.datasource.remote.auth.AuthenticationDataSourceImpl
 import com.jean.cinemapp.data.datasource.remote.movie.MovieRemoteDataSource
 import com.jean.cinemapp.data.datasource.remote.movie.MovieRemoteDataSourceImpl
-import com.jean.cinemapp.data.datasource.remote.movie.MovieDetailRemoteDataSource
-import com.jean.cinemapp.data.datasource.remote.movie.MovieDetailRemoteDataSourceImpl
 import com.jean.cinemapp.data.datasource.remote.search.SearchRemoteDataSource
 import com.jean.cinemapp.data.datasource.remote.search.SearchRemoteDataSourceImpl
 import com.jean.cinemapp.data.network.RetrofitService
@@ -47,16 +43,6 @@ object DataSourceModule {
     @Provides
     fun provideMovieLocalDataSource(cinemaDao: CinemaDao): MovieLocalDataSource =
         MovieLocalDataSourceImpl(cinemaDao)
-
-    @Singleton
-    @Provides
-    fun provideMovieDetailRemoteDataSource(retrofitService: RetrofitService): MovieDetailRemoteDataSource =
-        MovieDetailRemoteDataSourceImpl(retrofitService)
-
-    @Singleton
-    @Provides
-    fun provideMovieDetailLocalDataSource(cinemaDao: CinemaDao): MovieDetailLocalDataSource =
-        MovieDetailLocalDataSourceImpl(cinemaDao)
 
     // FAVORITE MODULE
 

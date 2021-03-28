@@ -2,7 +2,6 @@ package com.jean.cinemapp.di
 
 import com.jean.cinemapp.domain.repository.auth.AuthenticationRepository
 import com.jean.cinemapp.domain.repository.favorite.FavoriteRepository
-import com.jean.cinemapp.domain.repository.movie.MovieDetailRepository
 import com.jean.cinemapp.domain.repository.movie.MovieRepository
 import com.jean.cinemapp.domain.repository.search.SearchRepository
 import com.jean.cinemapp.domain.usecase.auth.*
@@ -64,8 +63,8 @@ object UseCaseModule {
         GetNextReleaseMoviesImpl(movieRepository)
 
     @Provides
-    fun provideGetMovieCast(movieDetailRepository: MovieDetailRepository): GetMovieCast =
-        GetMovieCastImpl(movieDetailRepository)
+    fun provideGetMovieCast(movieRepository: MovieRepository): GetMovieCast =
+        GetMovieCastImpl(movieRepository)
 
     // FAVORITE MODULE
 

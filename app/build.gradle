@@ -52,6 +52,12 @@ android {
     kapt {
         correctErrorTypes = true
     }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -67,9 +73,19 @@ dependencies {
     implementation Dependencies.lifecycle_livedata
     implementation Dependencies.fragment
 
+    // Testing
     testImplementation AndroidTestDependencies.junit
+    testImplementation AndroidTestDependencies.mockito_core
+    testImplementation AndroidTestDependencies.coroutines_test
+    testImplementation AndroidTestDependencies.androidx_arch_core
+    testImplementation AndroidTestDependencies.google_truth
+    testImplementation AndroidTestDependencies.mock_web_server
+    testImplementation AndroidTestDependencies.mockito_kotlin
+    testImplementation AndroidTestDependencies.io_mockk
+    testImplementation AndroidTestDependencies.robolectric
     androidTestImplementation AndroidTestDependencies.androidx_test_ext
     androidTestImplementation AndroidTestDependencies.espresso_core
+    androidTestImplementation AndroidTestDependencies.androidx_test_core
 
     // Navigation
     implementation Dependencies.navigation_component_fragment

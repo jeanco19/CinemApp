@@ -2,7 +2,9 @@ package com.jean.cinemapp.data.repository.movie
 
 import com.jean.cinemapp.data.datasource.local.movie.MovieLocalDataSource
 import com.jean.cinemapp.data.datasource.remote.movie.MovieRemoteDataSource
+import com.jean.cinemapp.data.mappers.toCastEntity
 import com.jean.cinemapp.data.mappers.toMovieEntity
+import com.jean.cinemapp.domain.model.movie.Cast
 import com.jean.cinemapp.domain.model.movie.Movie
 import com.jean.cinemapp.domain.repository.movie.MovieRepository
 import com.jean.cinemapp.utils.Connectivity
@@ -61,6 +63,22 @@ class MovieRepositoryImpl @Inject constructor(private val movieRemoteDataSource:
             }
         } else {
             return Resource.Error(ErrorTypes.WITHOUT_CONNECTION, data = movieLocalDataSource.getNextReleaseMovies().data)
+        }
+    }
+
+    override suspend fun getMovieCast(movieId: String): Resource<List<Cast>> {
+        if (Connectivity.isNetworkAvailable()) {
+            val remoteDataSource = movieRemoteDataSource.getMovieCast(movieId)
+            if (remoteDataSource.data.isNullOrEmpty()) {
+                return remoteDataSource
+            } else {
+                remoteDataSource.data.forEach { cast ->
+                    movieLocalDataSource.saveCast(cast.toCastEntity())
+                }
+                return remoteDataSource
+            }
+        } else {
+            return Resource.Error(ErrorTypes.WITHOUT_CONNECTION, data = movieLocalDataSource.getMovieCast(movieId).data)
         }
     }
 }
