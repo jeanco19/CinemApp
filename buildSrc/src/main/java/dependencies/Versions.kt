@@ -22,7 +22,7 @@ object Versions {
     val fragment = "1.2.5"
     val junit = "4.13"
     val mockito_core = "3.3.3"
-    val coroutines_test = "1.3.9"
+    val coroutines_test = "1.3.5"
     val androidx_arch_core = "2.1.0"
     val google_truth = "1.0.1"
     val mock_web_server = "4.6.0"

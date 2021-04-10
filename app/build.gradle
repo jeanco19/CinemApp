@@ -83,6 +83,10 @@ dependencies {
     testImplementation AndroidTestDependencies.mockito_kotlin
     testImplementation AndroidTestDependencies.io_mockk
     testImplementation AndroidTestDependencies.robolectric
+
+    androidTestImplementation AndroidTestDependencies.coroutines_test
+    androidTestImplementation AndroidTestDependencies.androidx_arch_core
+    androidTestImplementation AndroidTestDependencies.google_truth
     androidTestImplementation AndroidTestDependencies.androidx_test_ext
     androidTestImplementation AndroidTestDependencies.espresso_core
     androidTestImplementation AndroidTestDependencies.androidx_test_core
